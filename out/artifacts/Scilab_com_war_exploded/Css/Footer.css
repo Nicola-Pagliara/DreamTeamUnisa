@@ -1,0 +1,56 @@
+/* Style of Footer */
+
+
+.MainFooter:after{
+        display: table;
+    content: "";
+        clear: both;
+
+}
+
+.Footer-aboutus{
+            font-family: 'DejaVu Serif', Georgia, "Times New Roman", Times, serif;
+            font-size: small;
+            position: relative;
+            top: 20px;
+            width: 10%;
+            float: left;
+            display: inline-block;
+
+}
+
+.Footer-assist{
+    font-family: 'DejaVu Serif', Georgia, "Times New Roman", Times, serif;
+    font-size: small;
+    position: relative;
+    top: 20px;
+    width: 10%;
+    float: left;
+    display: inline-block;
+}
+
+.MainFooter{
+            background-color: lightgrey;
+            background-repeat: no-repeat;
+
+}
+
+.colore-link{
+            text-decoration: none;
+            font-family: 'DejaVu Serif', Georgia, "Times New Roman", Times, serif;
+            font-size: medium;
+}
+
+@media screen and (max-width: 600px) {
+                .Footer-aboutus{
+                            width: 5%;
+                }
+            .Footer-assist{
+                    width: 5%;
+            }
+            .colore-link{
+                    font-size: large;
+            }
+
+}
+

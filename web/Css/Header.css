@@ -1,0 +1,52 @@
+
+/* Formatting the header */
+header{
+        align-items: center;
+        background-color: lightgray;
+        background-repeat: no-repeat;
+
+}
+
+
+.mainNav ul {
+    float: left;
+    background-color: black;
+    padding: 10px;
+    margin: 0px;
+    border: 0px;
+    list-style-type: none;
+   max-width: 100%;
+    overflow: hidden;
+}
+
+ .HeadList h1{
+    size: A4;
+    color: blue;
+    text-align: center;
+}
+.HeadList{
+    width: 100%;
+    padding: 10px 10px 16px;
+    margin: 10px 10px;
+    overflow: hidden;
+    position: relative;
+    top:0px;
+}
+.ListItem a{
+    padding: 16px;
+    color: crimson;
+    margin-left: 10px;
+    margin-right: 10px;
+    text-align: center;
+    text-decoration: none;
+}
+#LogoSite{
+        float: left;
+        width:  50px;
+        height: 50px;
+}
+
+@media screen and (max-width: 600px){
+
+
+}

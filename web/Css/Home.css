@@ -1,0 +1,73 @@
+/* Styling Home page */
+*{
+    box-sizing: border-box;
+}
+
+#HomeCatContenier::after{
+            display: table;
+            content: "";
+            clear: both;
+            margin: 10px 10px;
+            border: 16px;
+         padding: 15px 15px 10px 10px;
+
+}
+
+
+.CategoryContainer{
+    background-color: azure;
+    margin: 10px 10px 20px 15px;
+    border: 16px;
+    padding: 10px;
+    display: inline-block;
+    overflow: hidden;
+    position: relative;
+    bottom: 15px;
+    float: left;
+    width: 15%;
+}
+
+.CategoryContainer > img.ImgCat{
+                width: 200px;
+                height: 200px;
+}
+
+.btnProd {
+            position: relative;
+            border-radius: 10%;
+            background-color: blueviolet;
+            top: 10%;
+
+}
+
+.btnProd > a.LinkProduct {
+    text-decoration: none;
+    font-size: medium;
+    background-color: aqua;
+    font-family: Courier, sans-serif;
+}
+
+
+
+ /*img.ImgBack{
+                position: relative;
+                width: fit-content;
+                height: fit-content;
+                z-index: -1;
+                bottom: 15px;
+}*/
+#HomeCatContenier{
+            background-image: url("/Immagini/ImgCategory/wallpapperScience.jpg");
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+}
+
+@media screen and (max-width: 600px) {
+        .CategoryContainer{
+                width: 100%;
+        }
+        .ImgCat{
+                width: 100px;
+                height: 100px;
+        }
+}
