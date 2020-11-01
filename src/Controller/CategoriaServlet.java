@@ -1,4 +1,4 @@
-/*package Controller;
+package Controller;
 
 import Model.Categoria;
 import Model.CategoriaDao;
@@ -23,16 +23,11 @@ public class CategoriaServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
                                 int id_serach= Integer.parseInt(request.getParameter("Idcat"));
-                                ArrayList<Categoria> categorie= (ArrayList<Categoria>) getServletContext().getAttribute("categorie");
-                                ProdottoDao service= new ProdottoDao();
-                         List<Prodotto> products= service.;
-                                Categoria sel_cat= categorie.get(id_serach); /* perche nel DB abbiamo auto_increment
-                                request.setAttribute("categoria", sel_cat);
-                                request.setAttribute("prodcat",products);
-                            RequestDispatcher dispatcher= request.getRequestDispatcher("/WEB-INF/Jsp/ProdCat.jsp");
+                         List<Prodotto> products= CategoriaDao.doFindProdByCatId(id_serach);
+                                request.setAttribute("prodscategory",products);
+                            RequestDispatcher dispatcher= request.getRequestDispatcher("/WEB-INF/jsp/ProdCat.jsp");
                             dispatcher.forward(request,response);
 
 
     }
 }
-*/

@@ -19,7 +19,7 @@ public class RicercaServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-                            String name_prod= request.getParameter("nomeProd");
+                            String name_prod= request.getParameter("search");
                             ProdottoDao prod= new ProdottoDao();
                             List<Prodotto> products= prod.SearchProdByName(name_prod);
                             request.setAttribute("showprodsearch",products);

@@ -293,7 +293,7 @@ public class ProdottoDao {
                                     ArrayList<Prodotto> search_prod=new ArrayList<>();
                                     PreparedStatement ps=null;
                                     try(Connection connection=ConPool.getConnection()) {
-                                                ps=connection.prepareStatement("SELECT Id_product,name_product,short_descripton,predef_img,qty_product,price,bookmarked from Product where name_product=?;");
+                                                ps=connection.prepareStatement("SELECT Id_product,name_product,short_descripton,qty_product,price,bookmarked from Product where name_product=?;");
                                                 ResultSet rs=ps.executeQuery();
                                                 if(rs== null) throw new MyExceptionServlet("errore nella query di ricerca prodotto");
                                                 else{

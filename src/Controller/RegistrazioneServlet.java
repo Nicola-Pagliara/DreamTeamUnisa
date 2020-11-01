@@ -33,6 +33,10 @@ public class RegistrazioneServlet extends HttpServlet {
 
             if (!(email != null && email.matches("^\\w+([\\.-]?\\w+)*@\\w+([\\.-]?\\w+)*(\\.\\w+)+$")))
                                              throw new MyExceptionServlet("Email non valida.");
+            // aggiungere controllo sui form lasciati vuoti dal utente
+            // aggiungere ulteriore controlli sui formati dello username
+            // aggiungere parte dinamica del Js with AJAX per aggiungere provincie una volta messa la città
+
 
             UtenteDao service= new UtenteDao();
             Utente  new_user= new Utente();

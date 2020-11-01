@@ -80,7 +80,7 @@ public class PreferitiDao {
         ArrayList<Prodotto> lista_pref=new ArrayList<>();
         PreparedStatement ps= null;
             try (Connection con= ConPool.getConnection()){
-                ps=con.prepareStatement("SELECT Id_product,name_product,short_descripton,predef_img,price,bookmarked from Product,Preference,Utente where Utente.Id_user=? and Preference.Id_prod=Product.Id_product and Utente.Id_user=Preference.Id_client and bookmarked=true ORDER BY name_product;");
+                ps=con.prepareStatement("SELECT Id_product,name_product,short_descripton,price,bookmarked from Product,Preference,Utente where Utente.Id_user=? and Preference.Id_prod=Product.Id_product and Utente.Id_user=Preference.Id_client and bookmarked=true ORDER BY name_product;");
                 ps.setInt(1,usr_id);
                 ResultSet rs= ps.executeQuery();
                 while(rs.next()){

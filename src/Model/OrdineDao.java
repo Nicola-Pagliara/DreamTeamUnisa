@@ -134,7 +134,7 @@ public class OrdineDao {
                     int check_ord=-1;
                     int index=0;
                     try(Connection connection=ConPool.getConnection()) {
-                                        ps=connection.prepareStatement("SELECT orders_name,orders_date,Id_orders,status_order,Id_us,Id_product,name_product,price,predef_img,short_descripton,Product.qty_product from Orders,Product,OrderProd,Utente where Id_product=Id_prod and Id_order=Id_orders and Id_user=Id_us and Id_user=?;");
+                                        ps=connection.prepareStatement("SELECT orders_name,orders_date,Id_orders,status_order,Id_us,Id_product,name_product,price,short_descripton,Product.qty_product from Orders,Product,OrderProd,Utente where Id_product=Id_prod and Id_order=Id_orders and Id_user=Id_us and Id_user=?;");
                                         ps.setInt(1,id_usr);
                                         ResultSet rs=ps.executeQuery();
                                         if(rs==null) throw  new MyExceptionServlet("Errore nella query");
@@ -161,7 +161,7 @@ public class OrdineDao {
                                                                         prod.setDesc(desc);
                                                                         prod.setIdprod(Integer.toString(id_prod));
                                                                         prod.setPathimageprodotto(pathimg);
-                                                                        prod.setQuantProdotto(qty_prod);
+                                                                        prod.setQuantprodotto(qty_prod);
                                                                         tot_price+= subprice*qty_prod;
                                                                         order.setPrezzoTotale(tot_price);
                                                                         order.addProdotti(prod);
@@ -183,7 +183,7 @@ public class OrdineDao {
                                                         prod.setDesc(desc);
                                                         prod.setIdprod(Integer.toString(id_prod));
                                                         prod.setPathimageprodotto(pathimg);
-                                                        prod.setQuantProdotto(qty_prod);
+                                                        prod.setQuantprodotto(qty_prod);
                                                         tot_price+= subprice*qty_prod;
                                                         list_usr.get(index).addProdotti(prod);
                                                         list_usr.get(index).setPrezzoTotale(tot_price);

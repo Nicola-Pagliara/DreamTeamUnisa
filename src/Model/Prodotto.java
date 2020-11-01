@@ -7,6 +7,21 @@ import java.util.Locale;
 public class Prodotto {
 
 
+    public Prodotto(String name) {
+                nome=name;
+    }
+
+    public Prodotto(String name, int qty) {
+                    quantprodotto=qty;
+                    nome=name;
+    }
+
+    public Prodotto(String name, int qty, int id) {
+                    idprod=Integer.toString(id);
+                    quantprodotto=qty;
+                    nome=name;
+    }
+
     public String getIdprod() {
         return idprod;
     }
@@ -15,20 +30,40 @@ public class Prodotto {
         this.idprod = idprod;
     }
 
-    private String idprod,desc,descrizione_dettagliata,pathimageprodotto,nome;
+    private String idprod;
+    private String desc;
+    private String descrizione_dettagliata;
+    private String pathimageprodotto;
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    private String nome;
     private double prezzo, altezza, peso;
-    private int quantProdotto;
+    private int quantprodotto;
     private double subTotale;
 
     public Prodotto(String nome , double prezzo, String descrizione, String pathimageprodotto, String descrizione_dettagliata, double altezza, double peso) {
         this.nome=nome;
         this.desc=descrizione;
         this.prezzo=prezzo;
-
         this.pathimageprodotto=pathimageprodotto;
         this.descrizione_dettagliata=descrizione_dettagliata;
         this.altezza=altezza;
         this.peso=peso;
+    }
+
+    public int getQuantprodotto() {
+        return quantprodotto;
+    }
+
+    public void setQuantprodotto(int quantprodotto) {
+        this.quantprodotto = quantprodotto;
     }
 
     public Prodotto(String id_prodotto, String nome, double prezzo, String descrizione, int quantProdotto) {
@@ -36,8 +71,7 @@ public class Prodotto {
         this.nome=nome;
         this.prezzo=prezzo;
         this.desc=descrizione;
-        this.quantProdotto=quantProdotto;
-        this.subTotale=0.0;
+        this.quantprodotto=quantProdotto;
     }
 
     public String getDesc() {
@@ -66,7 +100,7 @@ public class Prodotto {
         this.nome=name;
         this.desc=desc;
         this.pathimageprodotto=img;
-        this.quantProdotto=qty;
+        this.quantprodotto=qty;
         this.prezzo=price;
 
     }
@@ -79,17 +113,12 @@ public class Prodotto {
                     this.prezzo=price;
                     this.desc=desc;
                     this.pathimageprodotto=img;
-                    this.quantProdotto=qty;
+                    this.quantprodotto=qty;
     }
 
 
 
-    public String getNome(){
-        return nome;
-    }
-    public void setNome(String nome){
-        this.nome=nome;
-    }
+
     public double getPrezzo(){
         return prezzo;
     }
@@ -121,13 +150,7 @@ public class Prodotto {
         this.peso=peso;
     }
 
-    public int getQuantProdotto(){
-        return quantProdotto;
-    }
 
-    public void setQuantProdotto(int quantProdotto){
-        this.quantProdotto=quantProdotto;
-    }
 
     public String getSubTotale(){
         Locale locale=new Locale("ITALIAN");

@@ -116,9 +116,9 @@ create table OrderProd (
 INSERT INTO Product value (15,'Alambicco chimico','alambicco chimico proviente dalla russia',null,0,0,50.75,default,4);
 INSERT INTO Category value (01,'Strumenti fisici','Sono elencati tutti gli strumenti fisici','PhyscicsIcon');
 INSERT INTO Category value (02,'Strumenti chimici','Sono elencati tutti gli strumenti chimici','ChimestryIcon');
-Insert INTO Category value(03,'Strumenti informatici','Sono elencati tutti gli strumenti chimici','ComputerScienceIcon');
+Insert INTO Category value(03,'Strumenti informatici','Sono elencati tutti gli strumenti informatici','ComputerScienceIcon');
 Insert into Category value (04,'Strumenti matematici','Sono elencati tutti gli strumenti matematici','MathIcon');
-	
+INSERT INTO CategoryProd value (15,01);
                 
                 
                 

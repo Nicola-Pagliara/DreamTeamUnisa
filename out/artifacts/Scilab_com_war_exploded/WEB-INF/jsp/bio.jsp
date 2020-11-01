@@ -9,30 +9,29 @@
 <html>
 <head>
     <title>Title</title>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/Css/Bio.css">
 </head>
-<style>
-    section{
-        display:flex !important;
-        justify-content:center;
-        width:80%;
-        margin:auto;
-    }
-    .block div{
-        text-align: center;
-        padding: 10px 10px;
-        margin: 10px 20px;
-    }
-    .text p{
-        text-align: center;
-        color: black;
-        padding: 10px 10px;
-        margin: 10px 20px;
-    }
 
-</style>
 <body>
 
 <%@include file="Header.jsp"%>
+
+<div class="bio-devs">
+    <img class="img1" style="display: inline-block" src="${pageContext.request.contextPath}/Immagini/Foto/foto1.jpg">
+    <p class="bio1">
+        Salve sono Alessandro Schirosa<br> studente alla facoltà di informatica nel campus Unisa.<br>
+        Sono nato ad Agropoli ma vivo a Salerno ho 23 anni<br>
+        mi piace il cibo e viaggare.
+        <br>
+    </p>
+    <img class="img1" style="display: inline-block" src="${pageContext.request.contextPath}/Immagini/Foto/foto2.jpeg">
+    <p class="bio1">
+        Salve sono Nicola Pagliara<br> studente alla facoltà di informatica nel campus unisa.<br>
+        Sono nato a salerno e ci vivo tutt'ora ho 23 anni<br>
+        mi piace la fisica e tutto ciò che riguarda l'universo.
+        <br>
+    </p>
+</div>
 <section>
     <div class="block">
         <p class="text">

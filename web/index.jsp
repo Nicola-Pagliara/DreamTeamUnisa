@@ -20,6 +20,9 @@
     width: 200px;
     height: 200px;
   }
+  body{
+    background-image: url("/Immagini/ImgCategory/wallpapperScience.jpg");
+  }
 </style>
 <body>
 <%@include file="WEB-INF/jsp/Header.jsp"%>
@@ -30,8 +33,8 @@
     <p><c:out value="${categoria.descrizione}"></c:out> </p>
     <p hidden><c:out value="${categoria.idcategory}"></c:out></p>
     <img class="ImgCat" alt="${categoria.pathimageicona}.png" src="${pageContext.request.contextPath}/Immagini/ImgCategory/<c:out value="${categoria.pathimageicona}.png" ></c:out>">
-    <button style="display: block" title="Dettagli prodotto"  class="btnProd">
-      <a  class="LinkProduct" href="${pageContext.request.contextPath}/HomeServ" style="color: blueviolet" target="_blank">Info Prodotto</a>
+    <button style="display: block" title="Elenco prodotto"  class="btnProd">
+      <a  class="LinkProduct" href="${pageContext.request.contextPath}/CatServ?Idcat=${categoria.idcategory}" style="color: blueviolet" target="_blank">Info Prodotto</a>
     </button>
   </div>
 </c:forEach>

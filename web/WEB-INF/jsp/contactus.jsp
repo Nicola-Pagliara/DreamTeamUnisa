@@ -10,6 +10,16 @@ html>
 <head>
     <title>ConcatUs</title>
 </head>
+<style>
+                @media screen  and (max-width: 600px){
+                                #tabel{
+                                        width: 100%;
+                                }
+                                .form{
+                                        width: 100%;
+                                }
+                }
+</style>
 <body>
 <%@include file="Header.jsp"%>
 

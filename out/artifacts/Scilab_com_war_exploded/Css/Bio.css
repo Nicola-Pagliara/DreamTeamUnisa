@@ -1,0 +1,46 @@
+* {
+    box-sizing: border-box;
+}
+section{
+    display:flex !important;
+    justify-content:center;
+    width:80%;
+    margin:auto;
+}
+.block div{
+    text-align: center;
+    padding: 10px 10px;
+    margin: 10px 20px;
+}
+.text p{
+    text-align: center;
+    color: black;
+    padding: 10px 10px;
+    margin: 10px 20px;
+}
+.img1{
+    position: relative;
+    width: 100px;
+    height: auto;
+    float: left;
+}
+.bio1{
+    display: inline-block;
+    float: left;
+    padding: 10px 10px 10px 10px;
+    margin: 20px 20px 16px 16px;
+    background-color: aquamarine;
+    color: #403cb8;
+}
+@media screen and(max-width: 600px) {
+    .bio1{
+        width: 100%;
+    }
+    .img1{
+        max-width: 100px;
+        height: 100px;
+    }
+    section{
+        width: 100%;
+    }
+}
