@@ -20,6 +20,9 @@
                       <p><c:out value="${prod.idprod}"></c:out></p>
                       <p><c:out value="${prod.quantprodotto}"></c:out></p>
                       <img class="ImgProd" src="/Immagini/<c:out value="${prod.idprod}.jpg"></c:out>">
+                      <button class="BtnProd">
+                                <a href="${pageContext.request.contextPath}/DetServ?idsearch=${prod.idprod}" class="ProdLink" target="_blank">Dettagli Prodotto</a>
+                      </button>
                   </div>
                     </c:forEach>
                 </div>

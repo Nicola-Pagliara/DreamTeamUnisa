@@ -73,7 +73,7 @@ public class ProdottoDao {
     public static Prodotto doFindProdottoConId(int idTmp) {
         try (Connection con = ConPool.getConnection()) {
             ArrayList<Prodotto> prodotti = new ArrayList<Prodotto>();
-            PreparedStatement ps = con.prepareStatement("SELECT * FROM Product WHERE Id_product=?");
+            PreparedStatement ps = con.prepareStatement("SELECT Id_product,name_product,price,short_descripton,qty_product FROM Product WHERE Id_product=?");
             ps.setInt(1, idTmp);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {

@@ -34,7 +34,7 @@
     <p hidden><c:out value="${categoria.idcategory}"></c:out></p>
     <img class="ImgCat" alt="${categoria.pathimageicona}.png" src="${pageContext.request.contextPath}/Immagini/ImgCategory/<c:out value="${categoria.pathimageicona}.png" ></c:out>">
     <button style="display: block" title="Elenco prodotto"  class="btnProd">
-      <a  class="LinkProduct" href="${pageContext.request.contextPath}/CatServ?Idcat=${categoria.idcategory}" style="color: blueviolet" target="_blank">Info Prodotto</a>
+      <a  class="LinkProduct" href="${pageContext.request.contextPath}/CatServ?Idcat=${categoria.idcategory}" style="color: blueviolet" target="_blank">Info Prodotti Categoria</a>
     </button>
   </div>
 </c:forEach>
