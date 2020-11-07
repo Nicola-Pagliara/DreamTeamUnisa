@@ -19,9 +19,11 @@
                 <div class="LoginContainer">
                 <label for="username">Username:</label>
                 <input type="text" id="username" name="username" placeholder="Inserisci nome utente"> <br>
-                <label for="hashpass">Password:</label>
-                <input type="password" id="hashpass" name="hashpass" placeholder="Inserisci password">
-                  <button type="submit" class="BtnLog"> Login</button>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" placeholder="Inserisci password">
+                  <button type="submit" class="BtnLog">
+                      <a href="${pageContext.request.contextPath}/LogServ" target="_blank">Login</a>
+                  </button>
                   <label>
                     <input type="checkbox" checked="checked"> Ricordati di me
                   </label>

@@ -22,7 +22,7 @@
                                 <a href="showConUsServ" title="Pagina Social">Contattaci</a>
                                 <a href="ShowNewsServ" title="Pagina News">Notizie</a>
                                 <a href="showBioServ" title="Pagina sugli Sviluppatori">Chi siamo</a>
-                                <a href="#" title="Pagina registrazione">Registrati</a>
+                                <a href="ShowRegServ" title="Pagina registrazione">Registrati</a>
                                 <div class="SearchContainer">
                                         <form action="/RicServ" method="get">
                                 <input type="text" placeholder="Cerca..." name="search">

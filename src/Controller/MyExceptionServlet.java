@@ -17,5 +17,12 @@ public class MyExceptionServlet extends ServletException {
                 public MyExceptionServlet(String msg){
                                 super(msg);
                 }
+    public MyExceptionServlet(String message, Throwable cause) {
+        super(message, cause);
+    }
+
+    public MyExceptionServlet(Throwable cause) {
+        super(cause);
+    }
 
 }

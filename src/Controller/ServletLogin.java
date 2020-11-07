@@ -26,13 +26,16 @@ public class ServletLogin extends HttpServlet {
                      UtenteDao user=  new UtenteDao();
                      AdminDao user_admin= new AdminDao();
                      String address= null;
+                     System.out.println(request.getParameter("password"));
+                     String user_name=request.getParameter("username");
+                     String pass=request.getParameter("password");
 
-                     if(request.getParameter("username")==null || request.getParameter("hashpass")==null){
+                     if(user_name==null || pass==null){
                                     throw new MyExceptionServlet("Riempire i form");
                      }
 
                      else{
-                            if(request.getParameter("username").matches(User_regex) && request.getParameter("hashpash").matches(hashpass_regex)){
+                            if(user_name.matches(User_regex) && pass.matches(hashpass_regex)){
                                         if(user_admin.getAdminById(Integer.parseInt(request.getParameter("userId")))!=null){
                                                                  address= "/WEB-INF/jsp/admin.jsp";  // migliorare costruendo jsp in base al livello di privilegi del admin
                                             RequestDispatcher dispatcher=request.getRequestDispatcher(address);
@@ -68,6 +71,7 @@ public class ServletLogin extends HttpServlet {
 
 
                             }
+                            else throw new MyExceptionServlet("Nome utente o password non rispettano il formato");
 
                      }
 

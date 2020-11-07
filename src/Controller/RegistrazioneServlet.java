@@ -46,7 +46,7 @@ public class RegistrazioneServlet extends HttpServlet {
             new_user.setCF(cf);
             new_user.setEmail(email);
             service.doSave(new_user);
-            request.getSession().setAttribute("UsrLog",new_user);
+            request.getSession().setAttribute("usrlog",new_user);
 
         RequestDispatcher dispatcher= request.getRequestDispatcher("/WEB-INF/Jsp/RegistrazioneSucesso.jsp");
         dispatcher.forward(request,response);
