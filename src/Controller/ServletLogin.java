@@ -36,15 +36,15 @@ public class ServletLogin extends HttpServlet {
 
                      else{
                             if(user_name.matches(User_regex) && pass.matches(hashpass_regex)){
-                                        if(user_admin.getAdminById(Integer.parseInt(request.getParameter("userId")))!=null){
-                                                                 address= "/WEB-INF/jsp/admin.jsp";  // migliorare costruendo jsp in base al livello di privilegi del admin
+                                        if(user_admin.FindAdminByPassAndName(user_name,pass)!=null){
+                                                                 address= "/WEB-INF/jsp/adminpanel.jsp";  // migliorare costruendo jsp in base al livello di privilegi del admin
                                             RequestDispatcher dispatcher=request.getRequestDispatcher(address);
                                                                 dispatcher.forward(request,response);
                                         }
 
                                         else{
                                                 if(user.doFindByName(request.getParameter("username"))!=null){
-                                                                 address="/WEB-INF/jsp/user.jsp";
+                                                                 address="/WEB-INF/jsp/userpanel.jsp";
                                                                 synchronized (session) {
                                                                     session = request.getSession(true);
                                                                     session.setAttribute("usrlog", user);

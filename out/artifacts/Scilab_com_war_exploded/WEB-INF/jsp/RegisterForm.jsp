@@ -9,38 +9,38 @@
 <html>
   <head>
     <title>Registrazione</title>
+      <link href="${pageContext.request.contextPath}/Css/RegisterForm.css" rel="stylesheet">
   </head>
   <body>
+  <%@include file="/WEB-INF/jsp/Header.jsp"%>
   <div id="SignUpContainer">
                     <form action="${pageContext.request.contextPath}/RegServlet" method="post" style="border:1px solid black">
 
                                 <h1> Registrazione a SciLab</h1>
                                 <p> Per favore riempi tutti i campi del form correttamente, non lasciare campi vuoti.</p>
                                 <div class="field">
-                                        <label for id="nome"> Nome:</label>
-                                        <input type="text" name="nome" placeholder="Inserisci il nome..." required="required" autocomplete="off">
+                                        <input type="text" name="name" placeholder="Inserisci il nome..." required="required" autocomplete="off">
                                 </div>
                                 <br>
-                                <div class="field">
-                                        <label for id="Cognome">Cognome:</label>
-                                        <input type="text" name="cognome" placeholder="Inserisci il cognome..." required="required" autocomplete="off">
-                                </div>
-                                <br>
-                                <div class="field">
-                                            <label for id="Cf">Codice Fiscale:</label>
-                                            <input type="text" name="Cf" placeholder="Inserisci il codice fiscale..." required="required" autocomplete="off">
-                                </div>
-                                    <br>
-                                <div class="field">
-
-
-                                </div>
-
-
-
-
-
+                        <div class="field">
+                            <input type="text" name="username" placeholder="Inserisci l'Username.." required="required" autocomplete="off">
+                        </div>
+                        <br>
+                        <div class="field">
+                            <input type="password" name="password" placeholder="Inserisci Password.." required="required" autocomplete="off">
+                        </div>
+                        <br>
+                        <div class="field">
+                            <input  type="password"  name="passconferma" placeholder="Conferma Password.." required="required" autocomplete="off">
+                        </div>
+                        <br>
+                        <div class="signup-btn">
+                            <button title="Registrazione">
+                                <a class="signup-button"  href="${pageContext.request.contextPath}/RegServlet">Registrati</a>
+                            </button>
+                        </div>
          </form>
   </div>
+  <%@include file="/WEB-INF/jsp/Footer.jsp"%>
   </body>
 </html>

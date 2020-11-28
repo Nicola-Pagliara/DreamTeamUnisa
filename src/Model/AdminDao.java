@@ -14,7 +14,7 @@ public class AdminDao {
                                 ResultSet rs=ps.executeQuery();
                                 while (rs.next()){
                                             String name_found=rs.getString(1);
-                                            String pass_found= rs.getString("Pass_adm");
+                                            String pass_found= rs.getString("adminpasshash");
                                             int id_found=rs.getInt(3);
                                     return new Utente(id_found,name_found,null,pass_found);
                                 }

@@ -119,6 +119,8 @@ INSERT INTO Category value (02,'Strumenti chimici','Sono elencati tutti gli stru
 Insert INTO Category value(03,'Strumenti informatici','Sono elencati tutti gli strumenti informatici','ComputerScienceIcon');
 Insert into Category value (04,'Strumenti matematici','Sono elencati tutti gli strumenti matematici','MathIcon');
 INSERT INTO CategoryProd value (15,01);
+Insert Into Utente value (01,'Dummy','Test','dummytest00','dummytest01','dummytest@gmail.it',null);
+
                 
                 
                 

@@ -13,9 +13,9 @@
 <body>
         <header class="HeadList">
                 <h1>Benvenuti sulla ${param.title} Di Scilab.com</h1>
-                <img src="Immagini/LogoScilab.jpg" id="LogoSite">
                 <nav class="mainNav">
                 <ul id="LinkList" class="navList">
+                        <img src="Immagini/LogoScilab.jpg" id="LogoSite">
                         <li id="LinkItem" class="ListItem">
                                 <a href="HomeServ" title="Pagina Principale">Home</a>
                                  <a href="${pageContext.request.contextPath}/ShowLog" title="Pagina Login">Login user</a>
@@ -29,6 +29,11 @@
                                                 <button type="submit"><i class="fa fa-search"></i> </button>
                                         </form>
                                 </div>
+                                <%if(session.getAttribute("usrlog") != null){%>
+                                <a href="userpanel.jsp" style="font-weight: bold"><i class="fa fa-user"></i></a>
+                                        <!-- riflettere su gestione panello admin senza boolean root dato unico accesso è DB -->
+                                <%}%>
+                                <a href="#"> <i class="fa fa-shopping-cart"></i></a>
                         </li>
                 </ul>
                 </nav>
