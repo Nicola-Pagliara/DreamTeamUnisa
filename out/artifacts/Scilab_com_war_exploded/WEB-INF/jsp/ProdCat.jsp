@@ -20,9 +20,12 @@
                       <p><c:out value="${prod.idprod}"></c:out></p>
                       <p><c:out value="${prod.quantprodotto}"></c:out></p>
                       <img class="ImgProd" src="/Immagini/<c:out value="${prod.idprod}.jpg"></c:out>">
-                      <button class="BtnProd">
+                      <ul class="ListBtnsProd">
+                      <li><button class="BtnProd">
                                 <a href="${pageContext.request.contextPath}/DetServ?idsearch=${prod.idprod}" class="ProdLink" target="_blank">Dettagli Prodotto</a>
-                      </button>
+                      </button></li>
+                          <li><button class="BtnProd"><a href="${pageContext.request.contextPath}/CartServ?addCart=true&idHidden=${prod.idprod}" class="ProdLink">Aggiungi al carrello </a></button></li>
+                      </ul>
                   </div>
                     </c:forEach>
                 </div>

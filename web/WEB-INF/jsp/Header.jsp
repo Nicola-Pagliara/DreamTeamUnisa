@@ -1,4 +1,4 @@
-<%--
+<%@ page import="Model.Utente" %><%--
   Created by IntelliJ IDEA.
   User: nicola
   Date: 07/09/20
@@ -23,6 +23,7 @@
                                 <a href="ShowNewsServ" title="Pagina News">Notizie</a>
                                 <a href="showBioServ" title="Pagina sugli Sviluppatori">Chi siamo</a>
                                 <a href="ShowRegServ" title="Pagina registrazione">Registrati</a>
+                                <a href="${pageContext.request.contextPath}/CartServ?showCart=true"> <i class="fa fa-shopping-cart"></i></a>
                                 <div class="SearchContainer">
                                         <form action="/RicServ" method="get">
                                 <input type="text" placeholder="Cerca..." name="search">
@@ -30,10 +31,14 @@
                                         </form>
                                 </div>
                                 <%if(session.getAttribute("usrLog") != null){%>
-                                <a href="userpanel.jsp" style="font-weight: bold"><i class="fa fa-user"></i></a>
-                                        <!-- riflettere su gestione panello admin senza boolean root dato unico accesso è DB -->
+                                <% Utente usr= (Utente) session.getAttribute("usrLog"); %>
+                                        <% if(!usr.getAdmin()){%>
+                                        <a href="userpanel.jsp" style="font-weight: bold"><i class="fa fa-user"></i></a>
+                                        <%}
+                                        else {%>
+                                        <a href="adimnpanel.jsp" style="font-weight: bold"><i class="fa fa-user"></i> </a>
+                                             <%}%>
                                 <%}%>
-                                <a href="#"> <i class="fa fa-shopping-cart"></i></a>
                         </li>
                 </ul>
                 </nav>

@@ -17,10 +17,10 @@
                     <img src="#" alt="#">
                 </div>
                 <div class="LoginContainer">
-                <label for="username">Username:</label>
-                <input type="text" id="username" name="username" placeholder="Inserisci nome utente"> <br>
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" placeholder="Inserisci password">
+                <label for="user">Username:</label>
+                <input type="text" id="user" name="usrname" placeholder="Inserisci nome utente"/> <br>
+                <label for="pass">Password:</label>
+                <input type="password" id="pass" name="psw" placeholder="Inserisci password"/>
                   <button type="submit" class="BtnLog">
                       <a href="${pageContext.request.contextPath}/LogServ" target="_blank">Login</a>
                   </button>

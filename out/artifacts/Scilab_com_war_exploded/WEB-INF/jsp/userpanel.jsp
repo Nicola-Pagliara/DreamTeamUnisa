@@ -14,6 +14,14 @@
             <p>Bevenuto utente:<%=usr.getNome()+usr.getCognome()%></p>
             <br>
             <p> Questo è  il tuo pannello di controllo</p>
+            <div class="UsrPanelbtns">
+                <ul class="ListbtnsUserPanel" style="list-style-type: none">
+                    <li> <button><a href="${pageContext.request.contextPath}/LogtServ">Logout</a></button></li>
+                    <li><button> <a href="#">Storico Ordini</a></button></li>
+                    <li><button><a href="#">Storico Spedizioni</a></button></li>
+                    <li><button><a href="#">Gestisci Prodotti Preferiti</a> </button></li>
+                </ul>
+            </div>
 
   </body>
 </html>

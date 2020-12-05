@@ -246,16 +246,15 @@ public class ProdottoDao {
 
     public Prodotto doFindProdID(int id_prod){
                     try(Connection con=ConPool.getConnection()) {
-                                    PreparedStatement ps= con.prepareStatement("SELECT distinct Id_product,name_product,short_descripton,predef_img,price FROM Product WHERE  Id_product=?");
+                                    PreparedStatement ps= con.prepareStatement("SELECT distinct Id_product,name_product,short_descripton,price FROM Product WHERE  Id_product=?");
                                     ps.setInt(1,id_prod);
                                     ResultSet rs=ps.executeQuery();
                                     while(rs.next()){
                                             int id=rs.getInt(1);
                                             String nome=rs.getString(2);
                                             String desc=rs.getString(3);
-                                            String path=rs.getString(4);
-                                            double price= rs.getDouble(5);
-                                            Prodotto prod= new Prodotto(path,nome,price,desc, id);
+                                            double price= rs.getDouble(4);
+                                            Prodotto prod= new Prodotto(id,nome,desc,price);
                                             return prod;
                                     }
                     } catch (SQLException e) {

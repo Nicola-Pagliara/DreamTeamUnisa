@@ -22,6 +22,14 @@ public class Prodotto {
                     nome=name;
     }
 
+    public Prodotto(int id, String nome, String desc, double price) {
+                        this.idprod=Integer.toString(id);
+                        this.nome=nome;
+                        this.desc=desc;
+                        this.prezzo=price;
+
+    }
+
     public String getIdprod() {
         return idprod;
     }

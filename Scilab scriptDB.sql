@@ -3,13 +3,14 @@ create database SciLab_DB;
 use SciLab_DB;
 
 create table Utente(
-				Id_user int not null,
+				Id_user int not null auto_increment,
 				Nome varchar (20) not null,
 				Cognome varchar(20) not null,
 				username varchar(20) not null,
                 passwordhash varchar(50) not null,
                 email varchar(25) not null,
                 Immagine varchar(40) default null,
+                admin boolean default false,
                 primary key(username,passwordhash),
                 unique key(Id_user)
                 );
@@ -119,7 +120,7 @@ INSERT INTO Category value (02,'Strumenti chimici','Sono elencati tutti gli stru
 Insert INTO Category value(03,'Strumenti informatici','Sono elencati tutti gli strumenti informatici','ComputerScienceIcon');
 Insert into Category value (04,'Strumenti matematici','Sono elencati tutti gli strumenti matematici','MathIcon');
 INSERT INTO CategoryProd value (15,01);
-Insert Into Utente value (01,'Dummy','Test','dummytest00','dummytest01','dummytest@gmail.it',null);
+Insert Into Utente value (01,'Dummy','Test','dummytest00','dummytest01','dummytest@gmail.it',null,default);
 
                 
                 

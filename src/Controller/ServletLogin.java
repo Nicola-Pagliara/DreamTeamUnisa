@@ -26,9 +26,9 @@ public class ServletLogin extends HttpServlet {
                      UtenteDao user=  new UtenteDao();
                      AdminDao user_admin= new AdminDao();
                      String address= null;
-                     System.out.println(request.getParameter("password"));
-                     String user_name=request.getParameter("username");
-                     String pass=request.getParameter("password");
+                     System.out.println(request.getParameter("psw"));
+                     String user_name=request.getParameter("usrname");
+                     String pass=request.getParameter("psw");
 
                      if(user_name==null || pass==null){
                                     throw new MyExceptionServlet("Riempire i form");
@@ -43,7 +43,7 @@ public class ServletLogin extends HttpServlet {
                                         }
 
                                         else{
-                                                if(user.doFindByName(request.getParameter("username"))!=null){
+                                                if(user.doFindByName(request.getParameter("usrname"))!=null){
                                                                  address="/WEB-INF/jsp/userpanel.jsp";
                                                                 synchronized (session) {
                                                                     session = request.getSession(true);

@@ -23,7 +23,7 @@ public class Utente {
     }
 
 
-    public Utente(int idUtente, String nome, String cognome, String username, String password, String email, String indirizzo, String via, int nc, String piazza, String provincia, int cap, String regione, String stato, String cf, String pathimage) {
+    public Utente(int idUtente, String nome, String cognome, String username, String password, String email, String indirizzo, String via, int nc, String piazza, String provincia, int cap, String regione, String stato, String cf, String pathimage,boolean admin) {
         super();
         this.idUtente=idUtente;
         this.nome=nome;

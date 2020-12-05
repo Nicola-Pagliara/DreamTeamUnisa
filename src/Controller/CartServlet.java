@@ -21,24 +21,27 @@ public class CartServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Utente user=(Utente)request.getSession().getAttribute("usrLog");
+        Utente user=(Utente)request.getSession().getAttribute("usrlog");
         ProdottoDao prodDao= new ProdottoDao();
         Carrello cart= (Carrello) request.getSession().getAttribute("carrello");
         HttpSession session=request.getSession();
         RequestDispatcher requestDispatcher;
         if(cart==null){
                     cart=new Carrello();
-                    cart.setIdutente(user.getIdUtente());
+                    if(user!=null)
+                            cart.setIdutente(user.getIdUtente());
+
                     synchronized (session){
                                     session.setAttribute("carrello",cart);
                     }
         }
 
-        if(request.getParameter("addCart")!=null && user!=null){
+        if(request.getParameter("addCart")!=null){
             Prodotto prod=prodDao.doFindProdID(Integer.parseInt(request.getParameter("idHidden")));
             if(prod!=null) {
-                    if(user!=null)
+                    //if(user!=null)
                         cart.addProd(prod);
+                        System.out.println(cart.getListaProdotti().get(0).getIdprod());
             }
         }
 
@@ -51,7 +54,7 @@ public class CartServlet extends HttpServlet {
         }
 
         else if(request.getParameter("showCart")!=null){
-                      String address="/WEB-INF/jsp/Carrello.jsp";
+                      String address="/WEB-INF/jsp/carrello.jsp";
                       requestDispatcher=request.getRequestDispatcher(address);
                       requestDispatcher.forward(request,response);
         }

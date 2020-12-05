@@ -75,7 +75,7 @@ public class UtenteDao {
                 String stato = rs.getString(14);
                 String CF = rs.getString(15);
                 String pathimage = rs.getString(16);
-                utente = new Utente(idUtente, nome, cognome, username, password, email, indirizzo, via, nc, piazza, provincia, CAP, regione, stato, CF, pathimage);
+                utente = new Utente(idUtente, nome, cognome, username, password, email, indirizzo, via, nc, piazza, provincia, CAP, regione, stato, CF, pathimage,false);
                 utente.setIdUtente(idUtente);
                 listaUtente.add(utente);
             }
