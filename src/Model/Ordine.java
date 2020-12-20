@@ -10,6 +10,7 @@ public class Ordine {
     private int idOrdine;
     private String nomeOrdine, statusOrdine;
     private Date dataEmissione;
+    private int id_usr;
     public Ordine(){
         prezzoTotale=0;
         prodotti= new ArrayList<Prodotto>();
@@ -76,5 +77,13 @@ public class Ordine {
                 ", statusOrdine='" + statusOrdine + '\'' +
                 ", dataEmissione=" + dataEmissione +
                 '}';
+    }
+
+    public int getId_usr() {
+        return id_usr;
+    }
+
+    public void setId_usr(int id_usr) {
+        this.id_usr = id_usr;
     }
 }

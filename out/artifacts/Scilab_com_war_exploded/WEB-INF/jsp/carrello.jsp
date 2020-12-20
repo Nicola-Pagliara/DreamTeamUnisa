@@ -17,6 +17,7 @@
                 <% Carrello cart= (Carrello) session.getAttribute("carrello"); %>
                                 <p>Dettagli Carrello</p>
                             <% for (Prodotto prod:cart.getListaProdotti()){%>
+                                    <div class="ContainerProdCart">
                                     <span><%=prod.getIdprod()%> </span>
                                     <span><%=prod.getNome()%></span>
                                     <span> <%=prod.getDesc()%></span>
@@ -24,6 +25,6 @@
                                 <%}%>
                                 <br>
                                 <p>Prezzo totale:<%=cart.getSubTotale()%></p>
-
+                             </div>
                   </body>
 </html>

@@ -21,7 +21,7 @@ public class CartServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Utente user=(Utente)request.getSession().getAttribute("usrlog");
+        Utente user=(Utente)request.getSession().getAttribute("usrLog");
         ProdottoDao prodDao= new ProdottoDao();
         Carrello cart= (Carrello) request.getSession().getAttribute("carrello");
         HttpSession session=request.getSession();
@@ -41,7 +41,6 @@ public class CartServlet extends HttpServlet {
             if(prod!=null) {
                     //if(user!=null)
                         cart.addProd(prod);
-                        System.out.println(cart.getListaProdotti().get(0).getIdprod());
             }
         }
 
