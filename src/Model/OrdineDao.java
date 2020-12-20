@@ -58,7 +58,7 @@ public class OrdineDao {
                                 double subTot = rs.getDouble(3);
                                 int quantita = rs.getInt(2);
                                     Prodotto prodottoquantita = new Prodotto();
-                                    prodottoquantita.setSubTotale(subTot);
+                                  //  prodottoquantita.setSubTotale(subTot);
 
                                 int idOrdine = rs.getInt(1);
                                     if(idOrdine!=tmp){

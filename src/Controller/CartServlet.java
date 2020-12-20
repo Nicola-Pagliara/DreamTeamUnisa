@@ -40,7 +40,15 @@ public class CartServlet extends HttpServlet {
             Prodotto prod=prodDao.doFindProdID(Integer.parseInt(request.getParameter("idHidden")));
             if(prod!=null) {
                     //if(user!=null)
-                        cart.addProd(prod);
+                        if(!cart.getListaProdotti().contains(prod))
+                                            cart.addProd(prod);
+                        else{
+                            cart.removeProd(prod);
+                            int qty=prod.getQuantprodotto();        //gestione qty prodotto decidere se farla gestire al carrello o alla servlet Ordine
+                                qty++;
+                                prod.setQuantprodotto(qty);
+                                cart.addProd(prod);
+                        }
             }
         }
 

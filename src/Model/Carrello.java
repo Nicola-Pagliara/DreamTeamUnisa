@@ -64,15 +64,19 @@ public class Carrello {
 
     public void addProd(Prodotto prod){
             if(!listaProdotti.contains(prod)) {
-                this.totalPrice+=prod.getPrezzo();
-                listaProdotti.add(prod);
+                if(prod.getQuantprodotto()>0) {
+                    this.totalPrice += (prod.getPrezzo() * prod.getQuantprodotto());
+                    listaProdotti.add(prod);
+                }
             }
         }
 
         public void removeProd(Prodotto prod){
                         if(listaProdotti.contains(prod)){
-                                        this.totalPrice-=prod.getPrezzo();
-                                        listaProdotti.remove(prod);
+                            if(prod.getQuantprodotto()>0) {
+                                this.totalPrice -= (prod.getPrezzo() * prod.getQuantprodotto());
+                                listaProdotti.remove(prod);
+                            }
                         }
         }
 
