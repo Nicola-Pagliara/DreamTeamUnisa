@@ -11,17 +11,17 @@
     <title>Login</title>
   </head>
   <body>
-        <form action="${pageContext.request.contextPath}/LogServ" method="post" target="_blank">
+        <form action="${pageContext.request.contextPath}/LogServlet" method="post" target="_blank">
           
                 <div class="LoginImgCointainer">
                     <img src="#" alt="#">
                 </div>
                 <div class="LoginContainer">
-                <label for="username">Username:</label>
-                <input type="text" id="username" name="username" placeholder="Inserisci nome utente"> <br>
-                <label for="hashpass">Password:</label>
-                <input type="password" id="hashpass" name="hashpass" placeholder="Inserisci password">
-                  <button type="submit" class="BtnLog"> Login</button>
+                <label for="user">Username:</label>
+                <input type="text" id="user" name="username" value="username" placeholder="Inserisci nome utente"/> <br>
+                <label for="pass">Password:</label>
+                <input type="password" id="pass" name="password" value="password" placeholder="Inserisci password"/>
+                  <button type="submit" class="BtnLog" value="Login"> Login</button>
                   <label>
                     <input type="checkbox" checked="checked"> Ricordati di me
                   </label>

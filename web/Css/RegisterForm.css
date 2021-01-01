@@ -1,0 +1,40 @@
+.SignUpContainer:after{
+    display: table;
+    content: "";
+    clear: both;
+    margin: 10px 10px;
+    border: 16px;
+    padding: 15px 15px 10px 10px;
+}
+.field{
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    padding: 10px 10px;
+}
+
+.signup-btn{
+    float: bottom;
+    text-align: center;
+    padding: 5px 5px;
+    font-size: 5px;
+    margin: 4px 2px;
+    font-family: Courier, sans-serif;
+}
+label{
+    float: left;
+    height: 10%;
+    width: auto;
+}
+h1 {
+    text-align: center;
+}
+p {
+    text-align: center;
+}
+
+@media screen and(max-width: 640px){
+    .SignUp{
+        width: 100%;
+    }
+}

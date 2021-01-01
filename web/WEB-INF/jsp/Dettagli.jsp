@@ -19,6 +19,8 @@
                 <span><c:out value="${DetProd.nome}"></c:out></span>
                             <p> <c:out value="${DetProd.desc}"></c:out></p>
                           <p><c:out value="${DetProd.idprod}"></c:out> </p>
+                            <p><c:out value="${DetProd.quantprodotto}"></c:out></p>
+
                 </c:forEach>
                 </div>
   </body>

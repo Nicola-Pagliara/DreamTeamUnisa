@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-@WebServlet(name = "ServletLogin", urlPatterns = {"/LogServ"})
+@WebServlet(name = "ServletLogin", urlPatterns = {"/LogServlet"})
 public class ServletLogin extends HttpServlet {
             private static String User_regex= "^[^\\s]{5,30}$";
             private static String hashpass_regex="^[a-zA-Z0-9 && [^\\s]]{6,40}$";
@@ -26,25 +26,27 @@ public class ServletLogin extends HttpServlet {
                      UtenteDao user=  new UtenteDao();
                      AdminDao user_admin= new AdminDao();
                      String address= null;
+                     String user_name=request.getParameter("username");
+                     String pass=request.getParameter("password");
 
-                     if(request.getParameter("username")==null || request.getParameter("hashpass")==null){
+                     if(user_name==null || pass==null){
                                     throw new MyExceptionServlet("Riempire i form");
                      }
 
                      else{
-                            if(request.getParameter("username").matches(User_regex) && request.getParameter("hashpash").matches(hashpass_regex)){
-                                        if(user_admin.getAdminById(Integer.parseInt(request.getParameter("userId")))!=null){
-                                                                 address= "/WEB-INF/jsp/admin.jsp";  // migliorare costruendo jsp in base al livello di privilegi del admin
+                            if(user_name.matches(User_regex) && pass.matches(hashpass_regex)){
+                                        if(user_admin.FindAdminByPassAndName(user_name,pass)!=null){
+                                                                 address= "/WEB-INF/jsp/adminpanel.jsp";  // migliorare costruendo jsp in base al livello di privilegi del admin
                                             RequestDispatcher dispatcher=request.getRequestDispatcher(address);
                                                                 dispatcher.forward(request,response);
                                         }
-
                                         else{
-                                                if(user.doFindByName(request.getParameter("username"))!=null){
-                                                                 address="/WEB-INF/jsp/user.jsp";
+                                                if(user.doFindByUserName(request.getParameter("username"))!=null){
+                                                                 address="/WEB-INF/jsp/userpanel.jsp";
+                                                                 Utente user_logged=user.doFindByUserName(user_name);
                                                                 synchronized (session) {
                                                                     session = request.getSession(true);
-                                                                    session.setAttribute("usrlog", user);
+                                                                    session.setAttribute("usrLog", user_logged);
                                                                 }
                                                                 RequestDispatcher dispatcher=request.getRequestDispatcher(address);
                                                                 dispatcher.forward(request,response);
@@ -68,6 +70,7 @@ public class ServletLogin extends HttpServlet {
 
 
                             }
+                            else throw new MyExceptionServlet("Nome utente o password non rispettano il formato");
 
                      }
 

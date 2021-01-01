@@ -1,16 +1,26 @@
 package Model;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class Carrello {
     private int idcarrello, idprodotto, idutente;
     private ArrayList<Prodotto> listaProdotti = new ArrayList<Prodotto>();
+    private double totalPrice;
 
-	/*iniziaizzo il  costruttore vuoto
-	Carrello() {
-	}
-*/
+        public Carrello(){
 
+        }
+        // getters and setters of class Cart's attribute
+    public double getTotalPrice() {
+        return totalPrice;
+    }
+
+    public void setTotalPrice(double totalPrice) {
+        this.totalPrice = totalPrice;
+    }
     public int getIdcarrello() {
         return idcarrello;
     }
@@ -50,9 +60,26 @@ public class Carrello {
         this.listaProdotti = listaProdotti;
     }
 
+// methods of Cart
 
+    public void addProd(Prodotto prod){
+            if(!listaProdotti.contains(prod)) {
+                if(prod.getQuantprodotto()>0) {
+                    this.totalPrice += (prod.getPrezzo() * prod.getQuantprodotto());
+                    listaProdotti.add(prod);
+                }
+            }
+        }
 
-    public void addProd(Prodotto prod){listaProdotti.add(prod);}
+        public void removeProd(Prodotto prod){
+                        if(listaProdotti.contains(prod)){
+                            if(prod.getQuantprodotto()>0) {
+                                this.totalPrice -= (prod.getPrezzo() * prod.getQuantprodotto());
+                                listaProdotti.remove(prod);
+                            }
+                        }
+        }
+
 
 
     public int getSize() {
@@ -63,7 +90,17 @@ public class Carrello {
     @Override
     public String toString() {
         return "Carrello [idcarrello=" + idcarrello + ", idprodotto=" + idprodotto + ", idutente=" + idutente
-                + ", listaProdotti=" + listaProdotti + "]";
+                + ", listaProdotti=" + listaProdotti + "prezzototale=" +getSubTotale()+"]";
+    }
+
+    public String getSubTotale(){
+        Locale locale=new Locale("ITALIAN");
+        String pattern = "###.##";
+
+        DecimalFormat decimalFormat =(DecimalFormat) NumberFormat.getNumberInstance(locale);
+        decimalFormat.applyPattern(pattern);
+        String format = decimalFormat.format(totalPrice);
+        return format;
     }
 
 

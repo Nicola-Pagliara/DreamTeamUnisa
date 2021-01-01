@@ -1,4 +1,4 @@
-<%--
+<%@ page import="Model.Utente" %><%--
   Created by IntelliJ IDEA.
   User: nicola
   Date: 07/09/20
@@ -13,22 +13,32 @@
 <body>
         <header class="HeadList">
                 <h1>Benvenuti sulla ${param.title} Di Scilab.com</h1>
-                <img src="Immagini/LogoScilab.jpg" id="LogoSite">
                 <nav class="mainNav">
                 <ul id="LinkList" class="navList">
+                        <img src="Immagini/LogoScilab.jpg" id="LogoSite">
                         <li id="LinkItem" class="ListItem">
                                 <a href="HomeServ" title="Pagina Principale">Home</a>
                                  <a href="${pageContext.request.contextPath}/ShowLog" title="Pagina Login">Login user</a>
                                 <a href="showConUsServ" title="Pagina Social">Contattaci</a>
                                 <a href="ShowNewsServ" title="Pagina News">Notizie</a>
                                 <a href="showBioServ" title="Pagina sugli Sviluppatori">Chi siamo</a>
-                                <a href="#" title="Pagina registrazione">Registrati</a>
+                                <a href="ShowRegServ" title="Pagina registrazione">Registrati</a>
+                                <a href="${pageContext.request.contextPath}/CartServ?showCart=true"> <i class="fa fa-shopping-cart"></i></a>
                                 <div class="SearchContainer">
                                         <form action="/RicServ" method="get">
                                 <input type="text" placeholder="Cerca..." name="search">
                                                 <button type="submit"><i class="fa fa-search"></i> </button>
                                         </form>
                                 </div>
+                                <%if(session.getAttribute("usrLog") != null){%>
+                                <% Utente usr= (Utente) session.getAttribute("usrLog"); %>
+                                        <% if(!usr.getAdmin()){%>
+                                        <a href="${pageContext.request.contextPath}/WEB-INF/jsp/userpanel.jsp" style="font-weight: bold"><i class="fa fa-user"></i></a>
+                                        <%}
+                                        else {%>
+                                        <a href="adimnpanel.jsp" style="font-weight: bold"><i class="fa fa-user"></i> </a>
+                                             <%}%>
+                                <%}%>
                         </li>
                 </ul>
                 </nav>

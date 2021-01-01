@@ -13,7 +13,7 @@ import java.util.GregorianCalendar;
 import java.util.List;
 
 public class OrdineDao {
-    public static void addOrdine(int idProdotto,String pagamento, int quantità, double prezzo, int idOrdine ){
+    public static void addOrdine(int idProdotto, int idOrdine){
         try(Connection con = ConPool.getConnection()){
             GregorianCalendar dataTmp = new GregorianCalendar(); //modifica perchè nel db è stato adottato il tipo date
             int giorno=dataTmp.get(GregorianCalendar.DAY_OF_MONTH);
@@ -58,7 +58,7 @@ public class OrdineDao {
                                 double subTot = rs.getDouble(3);
                                 int quantita = rs.getInt(2);
                                     Prodotto prodottoquantita = new Prodotto();
-                                    prodottoquantita.setSubTotale(subTot);
+                                  //  prodottoquantita.setSubTotale(subTot);
 
                                 int idOrdine = rs.getInt(1);
                                     if(idOrdine!=tmp){
@@ -134,7 +134,7 @@ public class OrdineDao {
                     int check_ord=-1;
                     int index=0;
                     try(Connection connection=ConPool.getConnection()) {
-                                        ps=connection.prepareStatement("SELECT orders_name,orders_date,Id_orders,status_order,Id_us,Id_product,name_product,price,short_descripton,Product.qty_product from Orders,Product,OrderProd,Utente where Id_product=Id_prod and Id_order=Id_orders and Id_user=Id_us and Id_user=?;");
+                                        ps=connection.prepareStatement("SELECT orders_name,orders_date,Id_orders,status_order,Id_product,name_product,price,short_descripton,Product.qty_product from Orders,Product,OrderProd,Utente where Id_product=Id_prod and Id_order=Id_orders and Id_user=Id_us and Id_user=?;");
                                         ps.setInt(1,id_usr);
                                         ResultSet rs=ps.executeQuery();
                                         if(rs==null) throw  new MyExceptionServlet("Errore nella query");
@@ -144,18 +144,18 @@ public class OrdineDao {
                                                     Date date=rs.getDate(2);
                                                     if(check_ord!=id_order){
                                                                         String status=rs.getString(4);
-                                                                        int id_user=rs.getInt(5);
                                                                         Ordine order= new Ordine();
                                                                         order.setDataEmissione(date);
                                                                         order.setIdOrdine(id_order);
                                                                         order.setNomeOrdine(name);
                                                                         order.setStatusOrdine(status);
+                                                                        order.setId_usr(id_usr);
                                                                         int id_prod=rs.getInt("Id_product");
                                                                         String name_p=rs.getString("name_product");
                                                                         subprice=rs.getDouble("price");
                                                                         String pathimg=rs.getString("predef_img");
-                                                                        String desc=rs.getString(10);
-                                                                        int qty_prod=rs.getInt(11);
+                                                                        String desc=rs.getString(9);
+                                                                        int qty_prod=rs.getInt(10);
                                                                         Prodotto prod= new Prodotto();
                                                                         prod.setNome(name_p);
                                                                         prod.setDesc(desc);
@@ -176,8 +176,8 @@ public class OrdineDao {
                                                         String name_p=rs.getString("name_product");
                                                         subprice=rs.getDouble("price");
                                                         String pathimg=rs.getString("predef_img");
-                                                        String desc=rs.getString(10);
-                                                        int qty_prod=rs.getInt(11);
+                                                        String desc=rs.getString(9);
+                                                        int qty_prod=rs.getInt(10);
                                                         Prodotto prod= new Prodotto();
                                                         prod.setNome(name_p);
                                                         prod.setDesc(desc);
