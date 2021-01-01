@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-@WebServlet(name = "ServletLogin", urlPatterns = {"/LogServ"})
+@WebServlet(name = "ServletLogin", urlPatterns = {"/LogServlet"})
 public class ServletLogin extends HttpServlet {
             private static String User_regex= "^[^\\s]{5,30}$";
             private static String hashpass_regex="^[a-zA-Z0-9 && [^\\s]]{6,40}$";
@@ -26,9 +26,8 @@ public class ServletLogin extends HttpServlet {
                      UtenteDao user=  new UtenteDao();
                      AdminDao user_admin= new AdminDao();
                      String address= null;
-                     System.out.println(request.getParameter("psw"));
-                     String user_name=request.getParameter("usrname");
-                     String pass=request.getParameter("psw");
+                     String user_name=request.getParameter("username");
+                     String pass=request.getParameter("password");
 
                      if(user_name==null || pass==null){
                                     throw new MyExceptionServlet("Riempire i form");
@@ -41,13 +40,13 @@ public class ServletLogin extends HttpServlet {
                                             RequestDispatcher dispatcher=request.getRequestDispatcher(address);
                                                                 dispatcher.forward(request,response);
                                         }
-
                                         else{
-                                                if(user.doFindByName(request.getParameter("usrname"))!=null){
+                                                if(user.doFindByUserName(request.getParameter("username"))!=null){
                                                                  address="/WEB-INF/jsp/userpanel.jsp";
+                                                                 Utente user_logged=user.doFindByUserName(user_name);
                                                                 synchronized (session) {
                                                                     session = request.getSession(true);
-                                                                    session.setAttribute("usrlog", user);
+                                                                    session.setAttribute("usrLog", user_logged);
                                                                 }
                                                                 RequestDispatcher dispatcher=request.getRequestDispatcher(address);
                                                                 dispatcher.forward(request,response);

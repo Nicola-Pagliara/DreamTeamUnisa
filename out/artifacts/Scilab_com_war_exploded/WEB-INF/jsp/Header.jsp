@@ -33,7 +33,7 @@
                                 <%if(session.getAttribute("usrLog") != null){%>
                                 <% Utente usr= (Utente) session.getAttribute("usrLog"); %>
                                         <% if(!usr.getAdmin()){%>
-                                        <a href="userpanel.jsp" style="font-weight: bold"><i class="fa fa-user"></i></a>
+                                        <a href="${pageContext.request.contextPath}/WEB-INF/jsp/userpanel.jsp" style="font-weight: bold"><i class="fa fa-user"></i></a>
                                         <%}
                                         else {%>
                                         <a href="adimnpanel.jsp" style="font-weight: bold"><i class="fa fa-user"></i> </a>

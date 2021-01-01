@@ -22,7 +22,7 @@ public class LogoutServlet extends HttpServlet {
                         }
 
                         if(address==null|| address.contains("/LogtServ") || address.trim().isEmpty() || address.contains("/admview")){
-                                            address=".";
+                                            address="index.jsp";
                                             response.sendRedirect(address);
                         }
 

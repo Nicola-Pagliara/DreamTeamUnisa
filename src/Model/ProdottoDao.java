@@ -273,10 +273,9 @@ public class ProdottoDao {
                                                 int id=rs.getInt(1);
                                                 String name=rs.getString(2);
                                                 String desc= rs.getString(3);
-                                                String img=rs.getString(4);
-                                                double price=rs.getDouble(5);
-                                                int qty=rs.getInt(6);
-                                                Prodotto prodotto=new Prodotto(Integer.toString(id),name,price,desc,img,qty);
+                                                double price=rs.getDouble(4);
+                                                int qty=rs.getInt(5);
+                                                Prodotto prodotto=new Prodotto(Integer.toString(id),name,price,desc,qty);
                                                 home_list.add(prodotto);
                                     }
 

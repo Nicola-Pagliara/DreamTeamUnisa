@@ -10,7 +10,9 @@
   <head>
     <title>Pannello Utente</title>
   </head>
-  <body><% Utente usr= (Utente)session.getAttribute("usrlog");%>
+  <body>
+  <%@include file="/WEB-INF/jsp/Header.jsp"%>
+  <% Utente usr= (Utente)session.getAttribute("usrLog");%>
             <p>Bevenuto utente:<%=usr.getNome()+usr.getCognome()%></p>
             <br>
             <p> Questo è  il tuo pannello di controllo</p>
@@ -20,6 +22,7 @@
                     <li><button> <a href="#">Storico Ordini</a></button></li>
                     <li><button><a href="#">Storico Spedizioni</a></button></li>
                     <li><button><a href="#">Gestisci Prodotti Preferiti</a> </button></li>
+
                 </ul>
             </div>
 

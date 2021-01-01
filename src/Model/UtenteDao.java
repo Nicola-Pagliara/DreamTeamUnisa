@@ -89,7 +89,7 @@ public class UtenteDao {
     public Utente doFindByName(String name) {
         try (Connection connection = ConPool.getConnection()) {
             Utente user = null;
-            PreparedStatement ps = connection.prepareStatement("SELECT DISTINCT Nome,Cognome,Id_user,password FROM Utente WHERE Nome=?;");
+            PreparedStatement ps = connection.prepareStatement("SELECT DISTINCT Nome,Cognome,Id_user,passwordhash FROM Utente WHERE Nome=?;");
             ps.setString(1, name);
             ResultSet rs = ps.executeQuery();
             if (rs != null) {
@@ -103,6 +103,30 @@ public class UtenteDao {
                 }
 
             }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public Utente doFindByUserName(String username){
+        try (Connection connection = ConPool.getConnection()) {
+            Utente user = null;
+            PreparedStatement ps = connection.prepareStatement("SELECT Nome,Cognome,Id_user,passwordhash FROM Utente WHERE username=?");
+            ps.setString(1,username);
+            ResultSet rs = ps.executeQuery();
+
+                while (rs.next()) {
+                    String nome = rs.getString(1);
+                    String cognome = rs.getString(2);
+                    int id = rs.getInt(3);
+                    String pass = rs.getString(4);
+                    user= new Utente(id,nome,cognome,pass);
+                    return user;
+                }
+
+
 
         } catch (SQLException e) {
             e.printStackTrace();
