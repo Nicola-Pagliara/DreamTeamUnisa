@@ -15,6 +15,15 @@ create table Utente(
                 unique key(Id_user)
                 );
 
+create  table Utente_Mock
+(
+    mocknome     varchar(20) not null,
+    mockcognome  varchar(20) not null,
+    mockusername varchar(20) not null,
+    mockpass     varchar(50) not null,
+    mockadmin    boolean default false
+);
+
 
 create table Admin(
 				id_admn int not null,

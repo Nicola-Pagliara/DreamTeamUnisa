@@ -134,19 +134,19 @@ public class UtenteDao {
         return null;
     }
 
-    public void doSave(Utente usr){
-                    int id_usr=usr.getIdUtente();
+    public void doSave(Utente usr){ // aggiustare insernedo i nuovi campi
                     String nome= usr.getNome();
                     String cognome= usr.getCognome();
                     String pass= usr.getPassword();
-
+                    Boolean admin_privilege=usr.getAdmin();
+                    String username=usr.getUsername();
                     try(Connection connection= ConPool.getConnection()) {
-                        PreparedStatement ps= connection.prepareStatement("INSERT into Utente \n"+
-                                "('Id_user','Nome','Cognome','Password') VALUES (?,?,?,?);");
-                        ps.setInt(1,id_usr);
-                        ps.setString(2,nome);
-                        ps.setString(3,cognome);
-                        ps.setString(4,pass);
+                        PreparedStatement ps= connection.prepareStatement("INSERT into Utente_Mock (mocknome,mockcognome,mockpass,mockadmin,mockusername) VALUES (?,?,?,?,?);");
+                        ps.setString(1,nome);
+                        ps.setString(2,cognome);
+                        ps.setString(3,pass);
+                        ps.setBoolean(4,admin_privilege);
+                        ps.setString(5,username);
                         if(ps.executeUpdate()!=1)
                                     throw new RuntimeException("errore nell'inserimento");
                     } catch (SQLException e) {

@@ -19,24 +19,28 @@
                                 <h1> Registrazione a SciLab</h1>
                                 <p> Per favore riempi tutti i campi del form correttamente, non lasciare campi vuoti.</p>
                                 <div class="field">
-                                        <input type="text" name="name" placeholder="Inserisci il nome..." required="required" autocomplete="off">
+                                        <input type="text" name="name" value="name" placeholder="Inserisci il nome..." required="required" autocomplete="off">
                                 </div>
                                 <br>
                         <div class="field">
-                            <input type="text" name="username" placeholder="Inserisci l'Username.." required="required" autocomplete="off">
+                            <input type="text" name="surname" value="surname" placeholder="Inserisci il cognome..." required="required" autocomplete="off">
+                        </div>
+                                <br>
+                        <div class="field">
+                            <input type="text" name="username" value="username" placeholder="Inserisci l'Username.." required="required" autocomplete="off">
                         </div>
                         <br>
                         <div class="field">
-                            <input type="password" name="password" placeholder="Inserisci Password.." required="required" autocomplete="off">
+                            <input type="password" name="password" value="password" placeholder="Inserisci Password.." required="required" autocomplete="off">
                         </div>
                         <br>
                         <div class="field">
-                            <input  type="password"  name="passconferma" placeholder="Conferma Password.." required="required" autocomplete="off">
+                            <input  type="password"  name="passconferma" value="passconferma" placeholder="Conferma Password.." required="required" autocomplete="off">
                         </div>
                         <br>
                         <div class="signup-btn">
-                            <button title="Registrazione">
-                                <a class="signup-button"  href="${pageContext.request.contextPath}/RegServlet">Registrati</a>
+                            <button title="Registrazione" type="submit" class="signup-btn">
+                              Registrati
                             </button>
                         </div>
          </form>
